@@ -29,12 +29,12 @@ def original_combos():
         for combo, items in existing_combos.items():
             message = f"{combo}:\n"  # Adds combo title on a new line
             for item, price in items.items():
-                # Prints the combo
+                # Prints the combo on a new line below the combo name
                 message += f"{item}: ${price:.2f}\n"
             easygui.msgbox(message, title=combo)
     elif print_menu == "no":
         easygui.msgbox("Have a great day!")
 
 
-# Call the function to execute the code
+# Calls the function to run it
 original_combos()
