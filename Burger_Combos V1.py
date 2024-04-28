@@ -58,7 +58,7 @@ def combo_adder():
     # Then adds it into another empty dictionary
     while combo_item_num > 0:
         combo_meal = easygui.enterbox(f"What is combo meal {combo_meal_counter} called?").lower()
-        meal_cost = easygui.enterbox("How much does the meal cost? ($0.1-20)")
+        meal_cost = easygui.integerbox("How much does the meal cost? ($1-20)", lowerbound=1, upperbound=20)
         combo_items[combo_meal] = float(meal_cost)
         combo_meal_counter += 1
         combo_item_num -= 1
@@ -101,7 +101,26 @@ def combo_printer():
         # Print existing and added combos
         if user_input == "Print Existing Combos":
             message = ""
-            for combo, items in existing_combos.items():
+            # I had to copy and past the existing combos dictionary as when deleting combos
+            # It pops them from the main dictionary
+            existing_combos_copy = {
+                "Value": {
+                    "Beef burger": 5.69,
+                    "Fries": 1,
+                    "Fizzy drink": 1
+                },
+                "Cheesy": {
+                    "Cheeseburger": 6.69,
+                    "Fries": 1,
+                    "Fizzy drink": 1
+                },
+                "Super": {
+                    "Cheeseburger": 6.69,
+                    "Large Fries": 2,
+                    "Smoothie": 2
+                }
+            }
+            for combo, items in existing_combos_copy.items():
                 message += f"{combo}:\n"  # Adds combo title on a new line
                 for item, price in items.items():
                     # Prints the combo on a new line below the combo name
