@@ -14,7 +14,7 @@ def combo_adder():
     # Then adds it into another empty dictionary
     while combo_item_num > 0:
         combo_meal = easygui.enterbox(f"What is combo meal {combo_meal_counter} called?").lower()
-        meal_cost = easygui.integerbox("How much does the meal cost? ($0.1-20)", lowerbound=0.1, upperbound=20)
+        meal_cost = easygui.integerbox("How much does the meal cost? ($0.1-20)", lowerbound=1, upperbound=20)
         combo_items[combo_meal] = meal_cost
         combo_meal_counter += 1
         combo_item_num -= 1
