@@ -73,15 +73,15 @@ def combo_adder():
 
 def combo_printer():
     added_message = ""
-
+# Asks user if they want to delete a combo or not
     delete_combo = easygui.buttonbox(msg="Do you want to delete a combo?", choices=["Yes", "No"])
     if delete_combo == "Yes":
         combo_deleter()
-
+# Asks user if they want to add a combo or not
     add_combo = easygui.buttonbox(msg="Do you want to add a combo?", choices=["Yes", "No"])
     if add_combo == "Yes":
         added_combo = combo_adder()
-        # Update existing_combos with added_combo
+        # Updates the existing combos with the added combo
         existing_combos.update(added_combo)
         added_message = "Added Combo:\n\n"
         for combo, items in added_combo.items():
